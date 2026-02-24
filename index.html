@@ -2,19 +2,68 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gisela Luxury Houses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gisela Luxury Houses | Colección Barcelona</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: sans-serif; background: #121212; color: white; text-align: center; }
-        .hero { padding: 100px 20px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://rebrand.ly/gisela-mansion-pedralbes') center/cover; }
-        h1 { font-size: 3rem; color: #c5a059; }
-        .btn { display: inline-block; padding: 15px 30px; border: 1px solid #c5a059; color: #c5a059; text-decoration: none; margin-top: 20px; }
+        :root { --gold: #c5a059; --dark: #121212; --white: #ffffff; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--white); color: var(--dark); }
+        
+        /* Encabezado */
+        header { padding: 30px 5%; text-align: center; border-bottom: 1px solid #eee; background: white; }
+        .logo { font-family: 'Source Serif 4', serif; font-size: 1.8rem; letter-spacing: 3px; text-transform: uppercase; }
+
+        /* Cuadrícula de Propiedades */
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        h2 { font-family: 'Source Serif 4', serif; font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        
+        .property-card { background: var(--white); overflow: hidden; transition: 0.4s; cursor: pointer; }
+        .property-card:hover { transform: translateY(-10px); }
+        .property-img { width: 100%; height: 450px; object-fit: cover; background-color: #eee; }
+        .property-info { padding: 25px 0; border-bottom: 1px solid #f0f0f0; }
+        .location { font-size: 0.8rem; text-transform: uppercase; color: #888; letter-spacing: 2px; }
+        .price { color: var(--gold); font-weight: 600; font-size: 1.3rem; margin-top: 10px; }
+
+        /* Sección Valoración */
+        .valuation-section { background-color: var(--dark); color: var(--white); padding: 100px 20px; text-align: center; margin-top: 80px; }
+        .valuation-section h3 { font-family: 'Source Serif 4', serif; font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
+        .valuation-section p { font-weight: 300; font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9; line-height: 1.6; }
+        .btn-gold { display: inline-block; padding: 18px 45px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; transition: 0.3s; }
+        .btn-gold:hover { background-color: var(--gold); color: var(--dark); }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>COLECCIÓN EXCLUSIVA</h1>
-        <p>Propiedades seleccionadas en las mejores zonas de Barcelona.</p>
-        <a href="#" class="btn">SOLICITAR VALORACIÓN GRATUITA</a>
+
+    <header>
+        <div class="logo">Gisela Luxury Houses</div>
+    </header>
+
+    <div class="container">
+        <h2>Colección Barcelona</h2>
+        <div class="grid">
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" class="property-img">
+                <div class="property-info">
+                    <div class="location">Pedralbes, Barcelona</div>
+                    <div class="price">4.250.000 €</div>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1600607687940-c52fb0729a5c?auto=format&fit=crop&w=800&q=80" class="property-img">
+                <div class="property-info">
+                    <div class="location">Eixample, Ático Exclusivo</div>
+                    <div class="price">6.800.000 €</div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <section class="valuation-section">
+        <h3>VALORACIÓN GRATUITA</h3>
+        <p>¿Está pensando en vender su propiedad? Obtenga un informe de mercado profesional y detallado sin compromiso alguno.</p>
+        <a href="mailto:info@giselaluxuryhouses.com" class="btn-gold">Solicitar Informe Profesional</a>
+    </section>
+
 </body>
 </html>
