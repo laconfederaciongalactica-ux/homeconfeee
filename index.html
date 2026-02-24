@@ -3,67 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gisela Luxury Houses | Colección Barcelona</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+    <title>Gisela Luxury Houses | Residencias Prestigiosas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #c5a059; --dark: #121212; --white: #ffffff; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--white); color: var(--dark); }
+        :root { --gold: #c5a059; --dark: #121212; --light-gray: #f5f6f7; }
+        body { margin: 0; font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; }
         
-        /* Encabezado */
-        header { padding: 30px 5%; text-align: center; border-bottom: 1px solid #eee; background: white; }
-        .logo { font-family: 'Source Serif 4', serif; font-size: 1.8rem; letter-spacing: 3px; text-transform: uppercase; }
+        /* HEADER ESTILO LUXURY */
+        header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; border-bottom: 1px solid #dfdfdf; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; }
+        .logo { font-family: 'Source Serif 4', serif; font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        nav a { margin-left: 20px; text-decoration: none; color: var(--dark); font-size: 0.9rem; font-weight: 600; }
 
-        /* Cuadrícula de Propiedades */
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        h2 { font-family: 'Source Serif 4', serif; font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        /* HERO SECTION CON BUSCADOR */
+        .hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding-top: 60px; }
+        .hero h1 { font-family: 'Source Serif 4', serif; font-size: 3rem; max-width: 800px; margin-bottom: 30px; }
         
-        .property-card { background: var(--white); overflow: hidden; transition: 0.4s; cursor: pointer; }
-        .property-card:hover { transform: translateY(-10px); }
-        .property-img { width: 100%; height: 450px; object-fit: cover; background-color: #eee; }
-        .property-info { padding: 25px 0; border-bottom: 1px solid #f0f0f0; }
-        .location { font-size: 0.8rem; text-transform: uppercase; color: #888; letter-spacing: 2px; }
-        .price { color: var(--gold); font-weight: 600; font-size: 1.3rem; margin-top: 10px; }
+        .search-bar { background: white; padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); width: 90%; max-width: 800px; }
+        .search-bar input { border: none; flex: 1; padding: 15px; font-size: 1rem; outline: none; }
+        .search-bar button { background: var(--dark); color: white; border: none; padding: 12px 30px; border-radius: 30px; cursor: pointer; font-weight: 600; }
 
-        /* Sección Valoración */
-        .valuation-section { background-color: var(--dark); color: var(--white); padding: 100px 20px; text-align: center; margin-top: 80px; }
-        .valuation-section h3 { font-family: 'Source Serif 4', serif; font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
-        .valuation-section p { font-weight: 300; font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9; line-height: 1.6; }
-        .btn-gold { display: inline-block; padding: 18px 45px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; transition: 0.3s; }
-        .btn-gold:hover { background-color: var(--gold); color: var(--dark); }
+        /* DESTINOS DESTACADOS (GRID) */
+        .section { padding: 80px 5%; max-width: 1200px; margin: auto; }
+        .section h2 { font-family: 'Source Serif 4', serif; font-size: 2.2rem; text-align: center; margin-bottom: 10px; }
+        .section p.subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+        
+        .grid-destinos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .destino-card { position: relative; height: 400px; overflow: hidden; border-radius: 8px; cursor: pointer; }
+        .destino-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+        .destino-card:hover img { transform: scale(1.1); }
+        .overlay { position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); display: flex; align-items: flex-end; padding: 20px; color: white; font-size: 1.5rem; font-family: 'Source Serif 4', serif; }
+
+        /* BANNER VALORACIÓN (ESTILO PARALLAX) */
+        .parallax-banner { background: var(--dark); color: white; padding: 100px 5%; text-align: center; }
+        .parallax-banner h3 { font-family: 'Source Serif 4', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+        .btn-outline { border: 1px solid var(--gold); color: var(--gold); padding: 15px 40px; text-decoration: none; display: inline-block; margin-top: 20px; transition: 0.3s; letter-spacing: 2px; }
+        .btn-outline:hover { background: var(--gold); color: white; }
+
+        footer { background: #121212; color: #b5b5b5; padding: 40px 5%; text-align: center; font-size: 0.8rem; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">Gisela Luxury Houses</div>
+        <nav>
+            <a href="#">Vende</a>
+            <a href="#">Valora tu hogar</a>
+            <a href="#" style="border: 1px solid var(--dark); padding: 8px 15px; border-radius: 5px;">Login</a>
+        </nav>
     </header>
 
-    <div class="container">
-        <h2>Colección Barcelona</h2>
-        <div class="grid">
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" class="property-img">
-                <div class="property-info">
-                    <div class="location">Pedralbes, Barcelona</div>
-                    <div class="price">4.250.000 €</div>
-                </div>
+    <section class="hero">
+        <h1>Explora las residencias más prestigiosas de Barcelona</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Localidad o zona de Barcelona...">
+            <button>Buscar</button>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Ubicaciones Exclusivas</h2>
+        <p class="subtitle">Grandes ciudades o destinos exclusivos. Elige el lujo que va contigo.</p>
+        <div class="grid-destinos">
+            <div class="destino-card">
+                <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pedralbes">
+                <div class="overlay"><span>Pedralbes</span></div>
             </div>
-            <div class="property-card">
-                <img src="https://images.unsplash.com/photo-1600607687940-c52fb0729a5c?auto=format&fit=crop&w=800&q=80" class="property-img">
-                <div class="property-info">
-                    <div class="location">Eixample, Ático Exclusivo</div>
-                    <div class="price">6.800.000 €</div>
-                </div>
+            <div class="destino-card">
+                <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ibiza">
+                <div class="overlay"><span>Ibiza</span></div>
+            </div>
+            <div class="destino-card">
+                <img src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Eixample">
+                <div class="overlay"><span>Eixample Premium</span></div>
             </div>
         </div>
-    </div>
-
-    <section class="valuation-section">
-        <h3>VALORACIÓN GRATUITA</h3>
-        <p>¿Está pensando en vender su propiedad? Obtenga un informe de mercado profesional y detallado sin compromiso alguno.</p>
-        <a href="mailto:info@giselaluxuryhouses.com" class="btn-gold">Solicitar Informe Profesional</a>
     </section>
+
+    <section class="parallax-banner">
+        <h3>¿Quiere conocer el valor real de su propiedad?</h3>
+        <p>Confíe en los mejores profesionales para valorar su patrimonio en Barcelona.</p>
+        <a href="#" class="btn-outline">INICIAR VALORACIÓN</a>
+    </section>
+
+    <footer>
+        <p>© 2026 GISELA LUXURY HOUSES. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
